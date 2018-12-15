@@ -46,14 +46,14 @@ func PluginMeasure() ([]byte, []byte, float64) {
 	// S:	Saturation (measured compared to each processor busy)
 	// E:	Errors (not applicable for LOAD)
 	// Prepare the data
-	PluginData["load1m"]		= PluginData["loadaverage"].(load.AvgStat).Load1  / float64(NumCpus)
-	PluginData["load5m"]		= PluginData["loadaverage"].(load.AvgStat).Load5  / float64(NumCpus)
-	PluginData["load15m"]		= PluginData["loadaverage"].(load.AvgStat).Load15 / float64(NumCpus)
+	PluginData["load1m"]		= 100.0 * PluginData["loadaverage"].(load.AvgStat).Load1  / float64(NumCpus)
+	PluginData["load5m"]		= 100.0 * PluginData["loadaverage"].(load.AvgStat).Load5  / float64(NumCpus)
+	PluginData["load15m"]		= 100.0 * PluginData["loadaverage"].(load.AvgStat).Load15 / float64(NumCpus)
 	PluginData["use"]    		= PluginData["load1m"]
 	PluginData["load"]    		= PluginData["load1m"]
 	PluginData["latency"]  		= 0.00
 	PluginData["throughput"]  	= PluginData["load1m"]
-	PluginData["throughputmax"] = 1.00
+	PluginData["throughputmax"] = 100.00
 	PluginData["saturation"]    = PluginData["load1m"]
 	PluginData["errors"]    	= 0.00
 
