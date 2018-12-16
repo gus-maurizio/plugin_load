@@ -80,7 +80,7 @@ func PluginAlert(measure []byte) (string, string, bool, error) {
 	alertMsg  := ""
 	alertLvl  := ""
 	alertFlag := false
-	alertErr  := errors.New("")
+	alertErr  := errors.New("no error")
 
 	// Check that the CPU overall value is within range
 	switch {
